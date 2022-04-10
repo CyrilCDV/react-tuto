@@ -1,17 +1,20 @@
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
+import { useState } from "react";
 
-const Counter = (props) => {
+const StatefulCounter = (props) => {
   const item = "Book";
-  const count = 0;
+  const [count, setCount] = useState(0);
 
   const onClickMinus = () => {
     console.log("Minus");
+    setCount((count) => count - 1);
   };
 
   const onClickPlus = () => {
     console.log("Plus");
+    setCount((count) => count + 1);
   };
 
   return (
@@ -32,20 +35,15 @@ const Counter = (props) => {
         }}
       >
         {`${item}: ${count}`}
-        <Button variant="outlined" onClick={onClickMinus} disabled={false}>
+        <Button variant="outlined" onClick={onClickMinus} disabled={count < 1}>
           Decrement
         </Button>
         <Button variant="outlined" onClick={onClickPlus}>
           Increment
         </Button>
       </Card>
-      {/*
-      <Button variant="contained" onClick={onClickMinus} disabled={false}>
-        Delete
-      </Button>{" "}
-      */}
     </Box>
   );
 };
 
-export default Counter;
+export default StatefulCounter;
