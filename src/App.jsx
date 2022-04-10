@@ -1,9 +1,7 @@
-import Counter from "./Counter";
-
-const items = ["Book", "Car", "House", "Computer"];
+import StatefulCounter from "./StatefulCounter";
 
 const App = () => {
-  return <Counter />;
+  return <StatefulCounter />;
 };
 
 export default App;
